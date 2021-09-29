@@ -1,0 +1,122 @@
+* {
+    padding: none;
+    margin: none;
+    outline: none;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 90vh;
+    overflow-x: hidden;
+    font-family: sans-serif;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app {
+    max-width: 420px;
+    min-width: 260px;
+    min-height: 360px;
+    border-radius: 12px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (max-width: 447px) {
+    .app {
+        display: flex;
+        padding: 32px;
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
+    }
+}
+
+form.location-form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+form.location-form .input {
+    min-width: 70%;
+    border: none;
+    border-bottom: 2px solid #aaaaaa;
+    color: black;
+    transition: all 0.5s linear;
+    padding: 4px 8px;
+    font-size: 20px;
+}
+
+form.location-form .input:active,
+form.location-form .input:focus {
+    border-bottom: 2px solid #4285f4;
+}
+
+form.location-form .search-btn {
+    margin: 0 6px;
+    padding: 10px 8px;
+    min-width: 20%;
+    color: white;
+    background-color: #4285f4;
+    border: none;
+    border-radius: 2px;
+    font-size: 16px;
+    flex-grow: 1;
+}
+
+form.location-form .search-btn:hover {
+    background-color: #2063d2;
+}
+
+@media screen and (max-width: 447px) {
+    form.location-form .input {
+        font-size: 24px;
+        width: 50%;
+    }
+    form.location-form .search-btn {
+        font-size: 16px;
+        padding: 10px 8px;
+        border-radius: 6px;
+    }
+}
+
+.error p {
+    color: red;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.weather-data .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.weather-data .row.spaced {
+    margin-top: 1rem;
+}
+
+.weather-data .row .left h1 {
+    font-size: 4rem;
+    font-weight: normal;
+    margin: 2px;
+}
+
+.weather-data .row h4 {
+    display: block;
+    font-size: 1rem;
+    font-weight: normal;
+    margin: 2px;
+}
+
+.weather-data .row h2 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-bottom: 2px;
+    padding-left: 4px;
+}

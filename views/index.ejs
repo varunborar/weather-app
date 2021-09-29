@@ -6,23 +6,77 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-    <form method='POST' action='/' required>
-        <input type="text" placeholder="Choose city" name="city" />
-        <button type="submit">Search</button>
-    </form>
-    <%if( display !== null){ %>
-        <div class="grid">
-            <p>
-                <%= weather.name%>
-            </p>
-            <p class="text-muted small">
-                <%= weather%>
-            </p>
+    <div class="app">
+        <form class="location-form" method='POST' action='/' required>
+            <input class="input" type="text" placeholder="Choose city" name="city" required/>
+            <button class="search-btn" type="submit">Search</button>
+        </form>
+
+        <div class="error">
+            <% if (error) {%>
+                <p>
+                    <%= error%>
+                </p>
+                <% } %>
         </div>
-        <% } %>
+        <div class="weather-data">
+            <% if (display) {%>
+                <div class="col">
+                    <div class="row">
+                        <h2>
+                            <%= data.place %>
+                        </h2>
+                    </div>
+                    <div class="row">
+                        <div class="left">
+                            <h1>
+                                <%= Math.round(data.main.temp) %> &#176;C
+                            </h1>
+                        </div>
+                        <img src="<%= data.icon %>" alt="Weather-Icon">
+                    </div>
+                    <div class="row spaced">
+                        <div class="left">
+                            <h4>Min:
+                                <%= Math.round(data.main.temp_min)  %> &#176;C </h4>
+                            <h4>Max:
+                                <%= Math.round(data.main.temp_max)  %> &#176;C</h4>
+                        </div>
+                        <div class="right">
+                            <h4>Sunrise:
+                                <%= data.time.sunrise %>
+                            </h4>
+                            <h4>Sunset:
+                                <%= data.time.sunset  %>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="row spaced">
+                        <div class="left">
+                            <h4> Wind:
+                                <%= data.wind.speed %>
+                                    (
+                                    <%= data.wind.deg %>&#176;)
+                            </h4>
+                            <h4>
+
+
+                            </h4>
+                        </div>
+                        <div class="right">
+                            <h4> Clouds:
+                                <%= data.cloud.clouds %>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+        </div>
+    </div>
 </body>
 
 </html>
